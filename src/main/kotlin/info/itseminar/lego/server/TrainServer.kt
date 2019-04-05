@@ -1,5 +1,6 @@
 package info.itseminar.lego.server
 
+import info.itseminar.lego.protocol.Command
 import java.net.ServerSocket
 import java.net.Socket
 
@@ -43,6 +44,7 @@ class TrainService(socket: Socket) : Runnable {
                         train?.targetSpeed = command.speed
                         }
                     }
+                is Command.Nothing -> running = false
                 }
             }
 

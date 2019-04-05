@@ -1,6 +1,6 @@
 package info.itseminar.lego.client
 
-import info.itseminar.lego.server.Command
+import info.itseminar.lego.protocol.Command
 import java.net.Socket
 
 fun main(args: Array<String>) {

@@ -22,7 +22,7 @@ class Train(val id: Int) : Runnable {
     override fun run() {
         //val service = this.service
         while (service != null) {
-            Thread.sleep(5000)
+            Thread.sleep(500)
             if (targetSpeed > actualSpeed) actualSpeed = min(actualSpeed + 10, targetSpeed)
             if (targetSpeed < actualSpeed) actualSpeed = max(actualSpeed - 10, targetSpeed)
             service?.information(actualSpeed, 0, 0, 1u)

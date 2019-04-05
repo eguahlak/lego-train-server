@@ -1,4 +1,4 @@
-package info.itseminar.lego.server
+package info.itseminar.lego.protocol
 
 import java.io.*
 
@@ -39,7 +39,12 @@ sealed class Command {
                     val trackId = input.readInt()
                     val distanceToLight = input.readInt()
                     val light = input.read()
-                    return TrainInformation(speed, trackId, distanceToLight, light.toUByte())
+                    return TrainInformation(
+                        speed,
+                        trackId,
+                        distanceToLight,
+                        light.toUByte()
+                    )
                     }
                 TRAIN_CONTROL -> {
                     if (length != 6) throw CommandException("TRAIN_CONTROL expected to be 6 was $length")
