@@ -1,22 +1,22 @@
 package info.itseminar.lego.server
 
 import info.itseminar.lego.protocol.Command
+import java.net.InetAddress
 import java.net.ServerSocket
 import java.net.Socket
 
+var running = true
+val PORT = 4711
+
 fun main(args: Array<String>) {
-    val sever = TrainServer()
-    }
-
-class TrainServer {
-    var running = true
-
-    init {
-        val server = ServerSocket(4711)
-        while (running) {
-            val socket = server.accept()
-            Thread(TrainService(socket)).start()
-            }
+    println("Connecting train server ...")
+    val server = ServerSocket(PORT)
+    println(InetAddress.getLocalHost())
+    println("Listening on port $PORT")
+    while (running) {
+        val socket = server.accept()
+        println("  Client connected")
+        Thread(TrainService(socket)).start()
         }
     }
 
